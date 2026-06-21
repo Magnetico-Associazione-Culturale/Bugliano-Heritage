@@ -1,0 +1,37 @@
+{
+  "comune": {
+    "id": "niscemi",
+    "name": "Niscemi",
+    "province": "CL",
+    "region": "Sicilia",
+    "country": "IT",
+    "short_description": "Cittadina della provincia di Caltanissetta, affacciata sulla piana di Gela e circondata dalla Sughereta.",
+    "description": "Niscemi sorge su un altopiano tra la piana di Gela e i Monti Iblei. Il territorio e' noto per la Riserva Naturale Orientata Sughereta, per il Santuario della Madonna del Bosco e per il centro storico con le sue chiese. Questa app raccoglie i principali punti di interesse, gli itinerari turistici e le audioguide del territorio.",
+    "patron_saint": "Maria Santissima del Bosco",
+    "map_center": {
+      "lat": 37.1469,
+      "lon": 14.3897
+    },
+    "default_zoom": 15,
+    "contacts": {
+      "website": "https://www.comune.niscemi.cl.it",
+      "email": "info@comune.niscemi.cl.it",
+      "phone": "+39 0000 000000"
+    }
+  },
+  "app": {
+    "display_name": "Niscemi Heritage",
+    "publisher": "Magnetico Associazione Culturale",
+    "theme": {
+      "primary_color": "#1B4965",
+      "secondary_color": "#CAE9FF",
+      "accent_color": "#5FA8D3",
+      "logo": "media/branding/logo.png",
+      "splash_image": "media/branding/splash.jpg"
+    }
+  },
+  "media": {
+    "base_url": "https://raw.githubusercontent.com/magnetico/niscemi-heritage/main/",
+    "comment": "Ogni path di immagine/audio negli altri file e' RELATIVO a questo base_url. L'app costruisce l'URL completo come base_url + path. Cambiando solo questa riga si sposta tutto l'hosting (es. su un CDN)."
+  }
+}

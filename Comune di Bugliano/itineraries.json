@@ -1,0 +1,29 @@
+[
+  {
+    "id": "centro-storico",
+    "name": "Tour del Centro Storico",
+    "description": "Un percorso a piedi tra le principali chiese e i palazzi del centro di Bugliano.",
+    "difficulty": "easy",
+    "duration_minutes": 90,
+    "distance_km": 1.8,
+    "travel_mode": "walking",
+    "cover_image": "media/images/itineraries/centro-storico.jpg",
+    "stops": [
+      {
+        "order": 1,
+        "monument_id": "chiesa-san-giovanni",
+        "note": "Punto di partenza: la chiesa madre."
+      },
+      {
+        "order": 2,
+        "monument_id": "palazzo-comunale",
+        "note": "Affaccio sulla piazza principale."
+      }
+    ],
+    "path": [
+      { "lat": 37.6522, "lon": 14.6408 },
+      { "lat": 37.6524, "lon": 14.6409 },
+      { "lat": 37.6525, "lon": 14.6410 }
+    ]
+  }
+]

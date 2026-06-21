@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "content_version": "2026-06-21",
+  "comune_id": "bugliano",
+  "default_language": "it",
+  "available_languages": ["it"],
+  "files": {
+    "config": "config.json",
+    "monuments": "monuments.json",
+    "itineraries": "itineraries.json",
+    "quizzes": "quizzes.json"
+  }
+}

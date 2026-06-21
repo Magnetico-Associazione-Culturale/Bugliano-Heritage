@@ -1,0 +1,31 @@
+[
+  {
+    "id": "quiz-generale",
+    "title": "Quanto conosci Bugliano?",
+    "description": "Metti alla prova le tue conoscenze sul patrimonio del borgo.",
+    "monument_id": null,
+    "questions": [
+      {
+        "id": "q1",
+        "text": "A chi e' dedicata la chiesa madre di Bugliano?",
+        "image": "media/images/flat/chiesa-san-giovanni.jpg",
+        "options": [
+          { "id": "a", "text": "San Giovanni", "correct": true },
+          { "id": "b", "text": "San Basilio", "correct": false },
+          { "id": "c", "text": "Santa Maria", "correct": false }
+        ],
+        "explanation": "La chiesa madre e' dedicata a San Giovanni, patrono del borgo."
+      },
+      {
+        "id": "q2",
+        "text": "Quale edificio ospita il governo locale?",
+        "image": null,
+        "options": [
+          { "id": "a", "text": "Il Palazzo Comunale", "correct": true },
+          { "id": "b", "text": "La Chiesa di San Giovanni", "correct": false }
+        ],
+        "explanation": "Il Palazzo Comunale e' la sede del Municipio."
+      }
+    ]
+  }
+]

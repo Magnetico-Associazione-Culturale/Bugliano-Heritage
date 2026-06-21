@@ -1,0 +1,79 @@
+[
+  {
+    "id": "chiesa-san-giovanni",
+    "name": "Chiesa di San Giovanni",
+    "category": "church",
+    "short_description": "Chiesa madre dedicata a San Giovanni, principale luogo di culto del borgo.",
+    "description": "La chiesa madre rappresenta il cuore religioso di Bugliano. La facciata in stile barocco siciliano e l'interno a tre navate custodiscono opere di pregio.",
+    "lat": 37.6522,
+    "lon": 14.6408,
+    "address": "Piazza Centrale, 1, Bugliano, PI, Italia",
+    "tags": ["barocco", "centro storico"],
+    "audio": {
+      "path": "media/audio/it/01_chiesa_san_giovanni.mp3",
+      "duration": 180,
+      "language": "it",
+      "title": "Audioguida - Chiesa di San Giovanni",
+      "description": "Audioguida dedicata alla Chiesa di San Giovanni."
+    },
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/chiesa-san-giovanni.jpg",
+        "title": "Facciata della Chiesa di San Giovanni",
+        "alt": "Chiesa di San Giovanni vista esterna"
+      },
+      {
+        "format": "360",
+        "path": "media/images/360/chiesa-san-giovanni-ingresso.jpg",
+        "title": "Navata centrale",
+        "alt": "Vista panoramica 360 della navata centrale"
+      },
+      {
+        "format": "360",
+        "path": "media/images/360/chiesa-san-giovanni-altare.jpg",
+        "title": "Altare maggiore",
+        "alt": "Vista panoramica 360 dell'altare maggiore"
+      }
+    ],
+    "history": [
+      {
+        "title": "Fondazione",
+        "description": "La chiesa fu fondata come principale luogo di culto del centro abitato.",
+        "period": { "start": "1600", "end": "1650" },
+        "agents": [
+          { "role": "committente", "name": "Comunita' parrocchiale" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "palazzo-comunale",
+    "name": "Palazzo Comunale",
+    "category": "civic",
+    "short_description": "Sede del Municipio, centro amministrativo del borgo.",
+    "description": "Il Palazzo Comunale ospita gli uffici amministrativi e affaccia sulla piazza principale.",
+    "lat": 37.6525,
+    "lon": 14.6410,
+    "address": "Piazza della Repubblica, 1, Bugliano, PI, Italia",
+    "tags": ["istituzionale"],
+    "audio": null,
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/palazzo-comunale.jpg",
+        "title": "Palazzo Comunale",
+        "alt": "Palazzo Comunale di Bugliano"
+      }
+    ],
+    "history": [
+      {
+        "title": "Sede municipale",
+        "description": "Adattamento dell'edificio a sede del governo locale.",
+        "period": { "start": "1800", "end": "1900" }
+      }
+    ]
+  }
+]

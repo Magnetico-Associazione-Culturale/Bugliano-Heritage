@@ -1,0 +1,31 @@
+[
+  {
+    "id": "quiz-generale",
+    "title": "Quanto conosci Niscemi?",
+    "description": "Metti alla prova le tue conoscenze sul patrimonio della citta'.",
+    "monument_id": null,
+    "questions": [
+      {
+        "id": "q1",
+        "text": "Chi e' la patrona di Niscemi?",
+        "image": "media/images/flat/santuario-madonna-del-bosco.jpg",
+        "options": [
+          { "id": "a", "text": "Maria Santissima del Bosco", "correct": true },
+          { "id": "b", "text": "Santa Rosalia", "correct": false },
+          { "id": "c", "text": "Sant'Agata", "correct": false }
+        ],
+        "explanation": "La patrona di Niscemi e' Maria Santissima del Bosco, venerata nell'omonimo santuario."
+      },
+      {
+        "id": "q2",
+        "text": "A chi e' dedicata la Chiesa Madre di Niscemi?",
+        "image": null,
+        "options": [
+          { "id": "a", "text": "Santa Maria d'Itria", "correct": true },
+          { "id": "b", "text": "San Giovanni", "correct": false }
+        ],
+        "explanation": "La Chiesa Madre e' dedicata a Santa Maria d'Itria."
+      }
+    ]
+  }
+]

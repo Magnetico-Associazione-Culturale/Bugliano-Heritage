@@ -1,0 +1,37 @@
+{
+  "comune": {
+    "id": "bugliano",
+    "name": "Bugliano",
+    "province": "PI",
+    "region": "Toscana",
+    "country": "IT",
+    "short_description": "Piccolo borgo della provincia di Pisa, ricco di storia e tradizioni.",
+    "description": "Bugliano è un comune caratterizzato dal suo centro storico medievale, dalle chiese barocche e dai palazzi nobiliari. Questa app raccoglie i principali punti di interesse, gli itinerari turistici e le audioguide del territorio.",
+    "patron_saint": "San Giovanni",
+    "map_center": {
+      "lat": 37.6522,
+      "lon": 14.6408
+    },
+    "default_zoom": 15,
+    "contacts": {
+      "website": "https://www.comune.bugliano.pi.it",
+      "email": "info@comune.bugliano.pi.it",
+      "phone": "+39 0000 000000"
+    }
+  },
+  "app": {
+    "display_name": "Bugliano Heritage",
+    "publisher": "Magnetico Associazione Culturale",
+    "theme": {
+      "primary_color": "#1B4965",
+      "secondary_color": "#CAE9FF",
+      "accent_color": "#5FA8D3",
+      "logo": "media/branding/logo.png",
+      "splash_image": "media/branding/splash.jpg"
+    }
+  },
+  "media": {
+    "base_url": "https://raw.githubusercontent.com/magnetico/bugliano-heritage/main/",
+    "comment": "Ogni path di immagine/audio negli altri file e' RELATIVO a questo base_url. L'app costruisce l'URL completo come base_url + path. Cambiando solo questa riga si sposta tutto l'hosting (es. su un CDN)."
+  }
+}

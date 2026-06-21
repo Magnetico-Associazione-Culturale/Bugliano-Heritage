@@ -1,0 +1,101 @@
+[
+  {
+    "id": "chiesa-madre-santa-maria-itria",
+    "name": "Chiesa Madre Santa Maria d'Itria",
+    "category": "church",
+    "short_description": "Chiesa Madre di Niscemi, principale luogo di culto del centro storico.",
+    "description": "La Chiesa Madre, dedicata a Santa Maria d'Itria, e' il cuore religioso del centro storico di Niscemi. Custodisce opere d'arte sacra e rappresenta un punto di riferimento per la comunita'.",
+    "lat": 37.1469,
+    "lon": 14.3897,
+    "address": "Piazza Vittorio Emanuele, Niscemi, CL, Italia",
+    "tags": ["centro storico", "chiesa madre"],
+    "audio": {
+      "path": "media/audio/it/01_chiesa_madre.mp3",
+      "duration": 180,
+      "language": "it",
+      "title": "Audioguida - Chiesa Madre Santa Maria d'Itria",
+      "description": "Audioguida dedicata alla Chiesa Madre di Niscemi."
+    },
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/chiesa-madre-santa-maria-itria.jpg",
+        "title": "Facciata della Chiesa Madre",
+        "alt": "Chiesa Madre Santa Maria d'Itria vista esterna"
+      },
+      {
+        "format": "360",
+        "path": "media/images/360/chiesa-madre-navata.jpg",
+        "title": "Navata centrale",
+        "alt": "Vista panoramica 360 della navata centrale"
+      }
+    ],
+    "history": [
+      {
+        "title": "Fondazione",
+        "description": "La chiesa fu edificata come principale luogo di culto del centro abitato.",
+        "period": { "start": "1600", "end": "1700" },
+        "agents": [
+          { "role": "committente", "name": "Comunita' parrocchiale" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "santuario-madonna-del-bosco",
+    "name": "Santuario della Madonna del Bosco",
+    "category": "church",
+    "short_description": "Santuario dedicato alla patrona di Niscemi, immerso nella Sughereta.",
+    "description": "Il Santuario della Madonna del Bosco e' il principale luogo di devozione di Niscemi, legato alla patrona Maria Santissima del Bosco. Sorge ai margini della Riserva Naturale Sughereta ed e' meta di pellegrinaggio.",
+    "lat": 37.1530,
+    "lon": 14.3820,
+    "address": "Contrada Bosco, Niscemi, CL, Italia",
+    "tags": ["santuario", "patrona", "sughereta"],
+    "audio": null,
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/santuario-madonna-del-bosco.jpg",
+        "title": "Santuario della Madonna del Bosco",
+        "alt": "Santuario della Madonna del Bosco di Niscemi"
+      }
+    ],
+    "history": [
+      {
+        "title": "Devozione mariana",
+        "description": "Il santuario divenne centro del culto della patrona del paese.",
+        "period": { "start": "1700", "end": "1800" }
+      }
+    ]
+  },
+  {
+    "id": "palazzo-comunale",
+    "name": "Palazzo Comunale",
+    "category": "civic",
+    "short_description": "Sede del Municipio, centro amministrativo della citta'.",
+    "description": "Il Palazzo Comunale ospita gli uffici amministrativi di Niscemi e affaccia sulla piazza principale del centro.",
+    "lat": 37.1465,
+    "lon": 14.3902,
+    "address": "Piazza del Municipio, Niscemi, CL, Italia",
+    "tags": ["istituzionale"],
+    "audio": null,
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/palazzo-comunale.jpg",
+        "title": "Palazzo Comunale",
+        "alt": "Palazzo Comunale di Niscemi"
+      }
+    ],
+    "history": [
+      {
+        "title": "Sede municipale",
+        "description": "Adattamento dell'edificio a sede del governo locale.",
+        "period": { "start": "1800", "end": "1900" }
+      }
+    ]
+  }
+]
