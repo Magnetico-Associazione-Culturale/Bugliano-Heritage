@@ -41,6 +41,11 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 > comune va in produzione, la sua cartella può essere estratta in un repo dedicato
 > (es. `niscemi-heritage`) senza modifiche.
 
+> **Config mappa condivisa:** oltre alle cartelle comune esiste un file globale
+> `map.config.json` (repo `heritage-shared`) con provider e chiave della mappa Carto,
+> letto da tutte le build. Ogni `config.json` lo richiama via `map.config_url`. Vedi
+> *Mappa: configurazione globale condivisa*.
+
 ---
 
 ## Regola d'oro: i path
@@ -63,6 +68,49 @@ e `path = "media/images/flat/chiesa-san-giovanni.jpg"`, l'app scarica
 
 ---
 
+## Mappa: configurazione globale condivisa
+
+La mappa usa i basemap **Carto** (stile *voyager*), che richiedono una **chiave**. La chiave
+**non è contenuto del comune** ma infrastruttura a livello di app, uguale per tutti. Per
+questo **non** sta nei singoli `config.json`, ma in **un unico file remoto condiviso** —
+`map.config.json` nel repo `heritage-shared` — che ogni build scarica all'avvio:
+
+```
+https://raw.githubusercontent.com/magnetico/heritage-shared/main/map.config.json
+```
+
+```json
+{
+  "provider": "carto",
+  "style": "voyager",
+  "tile_url": "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key={key}",
+  "api_key": "LA_CHIAVE_QUI",
+  "attribution": "© OpenStreetMap contributors © CARTO",
+  "min_zoom": 0,
+  "max_zoom": 20
+}
+```
+
+Ogni `config.json` di comune **richiama** questo file tramite `map.config_url` (l'URL è lo
+stesso per tutti — è solo un puntatore, non la chiave). All'avvio l'app:
+
+```
+map_config      = fetch(config.map.config_url)          // file globale condiviso
+tile_url_finale = map_config.tile_url
+                    .replace("{key}", map_config.api_key) // poi {z}/{x}/{y} per ogni tile
+```
+
+**Vantaggio:** quando la chiave scade o cambia, si aggiorna **solo il campo `api_key` di
+questo file** e la modifica si propaga a **tutti i comuni da remoto**, senza ripubblicare
+sugli store e senza toccare nessuna sottocartella comune. Le cartelle `Comune di <Nome>/`
+restano autonome: la chiave non è duplicata al loro interno.
+
+> **Sicurezza:** la chiave viaggia nel traffico di rete dell'app, non è un segreto.
+> Proteggila lato Carto (restrizioni per bundle-id/dominio, limiti di quota), non con la
+> segretezza del file.
+
+---
+
 ## manifest.json
 
 | Campo | Tipo | Descrizione |
@@ -79,8 +127,10 @@ e `path = "media/images/flat/chiesa-san-giovanni.jpg"`, l'app scarica
 ## config.json
 
 Contiene le info del comune, il branding dell'app (white-label) e il `base_url` dei media.
-`comune.map_center` + `default_zoom` definiscono dove centrare la mappa all'avvio.
+`comune.map_center` + `default_zoom` definiscono dove **centrare** la mappa all'avvio.
 `app.theme` contiene i colori e il logo per personalizzare l'aspetto della build.
+`map.config_url` **richiama** il file mappa globale condiviso: provider e chiave (Carto)
+**non** stanno qui (vedi *Mappa: configurazione globale condivisa*).
 
 ---
 
@@ -182,8 +232,11 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
 3. In `manifest.json`: aggiorna `comune_id` e `content_version`.
 4. Compila `monuments.json`, `itineraries.json`, `quizzes.json`.
 5. Carica i media nelle cartelle `media/...` con gli stessi path indicati nei JSON.
-6. In build → indica la sottocartella del comune.
-7. Pubblica sugli store sotto *Magnetico Associazione Culturale*.
+6. **Mappa:** verifica che `config.json` abbia `map.config_url` (lo stesso per tutti i
+   comuni). Non duplicare la chiave: provider e chiave sono globali in `map.config.json`
+   (repo `heritage-shared`).
+7. In build → indica la sottocartella del comune.
+8. Pubblica sugli store sotto *Magnetico Associazione Culturale*.
 
 ## Validazione consigliata
 

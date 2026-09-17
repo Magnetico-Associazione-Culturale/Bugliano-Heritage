@@ -82,6 +82,10 @@ def main():
                 WARN.append(f"Quiz '{q.get('id')}' domanda '{question.get('id')}': "
                             f"{len(corrects)} risposte corrette (atteso 1)")
 
+    # Mappa: il config deve richiamare il file mappa globale condiviso
+    if not config.get("map", {}).get("config_url"):
+        WARN.append("config.json: manca 'map.config_url' (config mappa globale condivisa)")
+
     # Report
     for w in WARN:
         print("WARN:", w)

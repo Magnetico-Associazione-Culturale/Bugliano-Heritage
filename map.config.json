@@ -1,0 +1,10 @@
+{
+  "provider": "carto",
+  "style": "voyager",
+  "tile_url": "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key={key}",
+  "api_key": "cb1_3p4c_1_6d1465e54ef60dd9029fd8bb",
+  "attribution": "© OpenStreetMap contributors © CARTO",
+  "min_zoom": 0,
+  "max_zoom": 20,
+  "comment": "Config mappa GLOBALE condivisa da tutti i comuni. L'app costruisce l'URL dei tile sostituendo {key} con api_key, poi {z}/{x}/{y}. Aggiornando qui api_key la chiave si propaga a tutte le build da remoto, senza ripubblicare sugli store. Ogni config.json di comune punta a questo file via map.config_url."
+}
