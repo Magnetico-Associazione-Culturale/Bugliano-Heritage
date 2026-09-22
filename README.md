@@ -15,6 +15,7 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 ```
 /
 ├── README.md                    # Questa guida (architettura white-label)
+├── map.config.json              # Config mappa globale condivisa (provider + chiave Carto)
 │
 ├── Comune di Bugliano/          # Istanza comune (contenuti template di riferimento)
 │   ├── manifest.json            # Punto d'ingresso: versione + elenco dei file
@@ -39,10 +40,10 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 > **Ogni `Comune di <Nome>/` è autonoma e clonabile:** contiene tutti i JSON, i media e il
 > validatore. In fase di build si punta alla sottocartella del comune desiderato. Quando un
 > comune va in produzione, la sua cartella può essere estratta in un repo dedicato
-> (es. `niscemi-heritage`) senza modifiche.
+> (es. `niscemi-heritage`) aggiornando solo `media.base_url`.
 
 > **Config mappa condivisa:** oltre alle cartelle comune esiste un file globale
-> `map.config.json` (repo `heritage-shared`) con provider e chiave della mappa Carto,
+> `map.config.json` (nella radice di questo repo) con provider e chiave della mappa Carto,
 > letto da tutte le build. Ogni `config.json` lo richiama via `map.config_url`. Vedi
 > *Mappa: configurazione globale condivisa*.
 
@@ -59,9 +60,11 @@ L'app costruisce l'URL completo così:
 url_completo = config.media.base_url + path_relativo
 ```
 
-Esempio: con `base_url = "https://raw.githubusercontent.com/magnetico/bugliano-heritage/main/"`
+Esempio: con `base_url = "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/Comune%20di%20Bugliano/"`
 e `path = "media/images/flat/chiesa-san-giovanni.jpg"`, l'app scarica
-`https://raw.githubusercontent.com/magnetico/bugliano-heritage/main/media/images/flat/chiesa-san-giovanni.jpg`.
+`https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/Comune%20di%20Bugliano/media/images/flat/chiesa-san-giovanni.jpg`.
+
+Il `base_url` deve terminare con `/` e gli spazi nel nome della cartella vanno scritti come `%20`.
 
 **Vantaggio:** per spostare l'hosting (es. da GitHub a un CDN) cambi *una sola riga* in
 `config.json`. Non toccare mai gli altri file.
@@ -73,10 +76,10 @@ e `path = "media/images/flat/chiesa-san-giovanni.jpg"`, l'app scarica
 La mappa usa i basemap **Carto** (stile *voyager*), che richiedono una **chiave**. La chiave
 **non è contenuto del comune** ma infrastruttura a livello di app, uguale per tutti. Per
 questo **non** sta nei singoli `config.json`, ma in **un unico file remoto condiviso** —
-`map.config.json` nel repo `heritage-shared` — che ogni build scarica all'avvio:
+`map.config.json` nella radice di questo repo — che ogni build scarica all'avvio:
 
 ```
-https://raw.githubusercontent.com/magnetico/heritage-shared/main/map.config.json
+https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/map.config.json
 ```
 
 ```json
@@ -234,7 +237,7 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
 5. Carica i media nelle cartelle `media/...` con gli stessi path indicati nei JSON.
 6. **Mappa:** verifica che `config.json` abbia `map.config_url` (lo stesso per tutti i
    comuni). Non duplicare la chiave: provider e chiave sono globali in `map.config.json`
-   (repo `heritage-shared`).
+   (radice di questo repo).
 7. In build → indica la sottocartella del comune.
 8. Pubblica sugli store sotto *Magnetico Associazione Culturale*.
 
