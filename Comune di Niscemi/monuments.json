@@ -71,6 +71,34 @@
     ]
   },
   {
+    "id": "piazza-vittorio-emanuele",
+    "name": "Piazza Vittorio Emanuele",
+    "category": "civic",
+    "short_description": "Piazza principale del centro storico, salotto urbano di Niscemi.",
+    "description": "Cuore della vita cittadina, Piazza Vittorio Emanuele si apre davanti alla Chiesa Madre ed e' il principale punto di ritrovo del centro storico, sede di feste e manifestazioni.",
+    "lat": 37.1469,
+    "lon": 14.3897,
+    "address": "Piazza Vittorio Emanuele, Niscemi, CL, Italia",
+    "tags": ["centro storico", "piazza"],
+    "audio": null,
+    "images": [
+      {
+        "role": "thumbnail",
+        "format": "standard",
+        "path": "media/images/flat/piazza-vittorio-emanuele.jpg",
+        "title": "Piazza Vittorio Emanuele",
+        "alt": "Veduta della piazza principale di Niscemi"
+      },
+      {
+        "format": "360",
+        "path": "media/images/360/piazza-vittorio-emanuele.jpg",
+        "title": "Panoramica della piazza",
+        "alt": "Vista panoramica a 360 gradi di Piazza Vittorio Emanuele"
+      }
+    ],
+    "history": []
+  },
+  {
     "id": "palazzo-comunale",
     "name": "Palazzo Comunale",
     "category": "civic",

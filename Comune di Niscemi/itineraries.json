@@ -16,6 +16,11 @@
       },
       {
         "order": 2,
+        "monument_id": "piazza-vittorio-emanuele",
+        "note": "Sosta nella piazza principale: disponibile la vista panoramica a 360 gradi."
+      },
+      {
+        "order": 3,
         "monument_id": "palazzo-comunale",
         "note": "Affaccio sulla piazza principale."
       }
