@@ -69,6 +69,13 @@ def main():
             if ref and ref not in monument_ids:
                 ERRORS.append(f"Itinerario '{it.get('id')}': monument_id inesistente: {ref}")
         check_path(it.get("cover_image"), f"itinerario {it.get('id')}")
+        if len(it.get("path") or []) < 2:
+            WARN.append(f"Itinerario '{it.get('id')}': manca 'path' (linea retta tra le tappe). "
+                        f"Esegui build_routes.py dalla radice del repo")
+        for leg in it.get("legs") or []:
+            if leg.get("distance_km") == 0:
+                WARN.append(f"Itinerario '{it.get('id')}': {leg.get('from')} e {leg.get('to')} "
+                            f"hanno le stesse coordinate")
 
     # Quiz
     for q in quizzes:

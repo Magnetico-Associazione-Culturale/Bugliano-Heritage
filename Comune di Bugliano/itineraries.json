@@ -5,7 +5,7 @@
     "description": "Un percorso a piedi tra le principali chiese e i palazzi del centro di Bugliano.",
     "difficulty": "easy",
     "duration_minutes": 90,
-    "distance_km": 1.8,
+    "distance_km": 0.06,
     "travel_mode": "walking",
     "cover_image": "media/images/itineraries/centro-storico.jpg",
     "stops": [
@@ -21,9 +21,30 @@
       }
     ],
     "path": [
-      { "lat": 37.6522, "lon": 14.6408 },
-      { "lat": 37.6524, "lon": 14.6409 },
-      { "lat": 37.6525, "lon": 14.6410 }
+      { "lat": 37.65221, "lon": 14.64087 },
+      { "lat": 37.65237, "lon": 14.64083 },
+      { "lat": 37.65245, "lon": 14.64081 },
+      { "lat": 37.65247, "lon": 14.64081 },
+      { "lat": 37.65248, "lon": 14.64081 },
+      { "lat": 37.65251, "lon": 14.64082 },
+      { "lat": 37.65253, "lon": 14.64084 },
+      { "lat": 37.65255, "lon": 14.64085 },
+      { "lat": 37.65257, "lon": 14.64087 },
+      { "lat": 37.65259, "lon": 14.6409 },
+      { "lat": 37.65259, "lon": 14.64093 },
+      { "lat": 37.6526, "lon": 14.64097 },
+      { "lat": 37.65259, "lon": 14.64102 },
+      { "lat": 37.65258, "lon": 14.64105 },
+      { "lat": 37.65256, "lon": 14.64108 },
+      { "lat": 37.65254, "lon": 14.64109 }
+    ],
+    "legs": [
+      {
+        "from": "chiesa-san-giovanni",
+        "to": "palazzo-comunale",
+        "distance_km": 0.06,
+        "travel_minutes": 1
+      }
     ]
   }
 ]

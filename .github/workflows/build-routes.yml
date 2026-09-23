@@ -1,0 +1,46 @@
+name: Genera percorsi itinerari
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Comune di */itineraries.json"
+      - "Comune di */monuments.json"
+      - "build_routes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-routes
+
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Calcola i percorsi
+        run: python3 build_routes.py
+
+      - name: Valida i contenuti
+        run: |
+          for dir in "Comune di "*/; do
+            echo "== $dir"
+            (cd "$dir" && python3 validate.py)
+          done
+
+      - name: Commit dei percorsi aggiornati
+        run: |
+          if git diff --quiet; then
+            echo "Nessun cambiamento"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add "Comune di */itineraries.json"
+          git commit -m "Aggiorna percorsi itinerari [automatico]"
+          git push

@@ -5,7 +5,7 @@
     "description": "Un percorso a piedi tra le principali chiese e i palazzi del centro di Niscemi.",
     "difficulty": "easy",
     "duration_minutes": 90,
-    "distance_km": 1.6,
+    "distance_km": 0.11,
     "travel_mode": "walking",
     "cover_image": "media/images/itineraries/centro-storico.jpg",
     "stops": [
@@ -26,9 +26,26 @@
       }
     ],
     "path": [
-      { "lat": 37.1469, "lon": 14.3897 },
-      { "lat": 37.1467, "lon": 14.3900 },
-      { "lat": 37.1465, "lon": 14.3902 }
+      { "lat": 37.14688, "lon": 14.3897 },
+      { "lat": 37.14685, "lon": 14.39038 },
+      { "lat": 37.14675, "lon": 14.39037 },
+      { "lat": 37.14668, "lon": 14.39034 },
+      { "lat": 37.14648, "lon": 14.39033 },
+      { "lat": 37.14649, "lon": 14.3902 }
+    ],
+    "legs": [
+      {
+        "from": "chiesa-madre-santa-maria-itria",
+        "to": "piazza-vittorio-emanuele",
+        "distance_km": 0.0,
+        "travel_minutes": 0
+      },
+      {
+        "from": "piazza-vittorio-emanuele",
+        "to": "palazzo-comunale",
+        "distance_km": 0.11,
+        "travel_minutes": 2
+      }
     ]
   },
   {
@@ -37,7 +54,7 @@
     "description": "Itinerario che collega il centro al Santuario della Madonna del Bosco, ai margini della Riserva Naturale Sughereta.",
     "difficulty": "medium",
     "duration_minutes": 120,
-    "distance_km": 4.2,
+    "distance_km": 1.01,
     "travel_mode": "walking",
     "cover_image": "media/images/itineraries/fede-e-natura.jpg",
     "stops": [
@@ -50,6 +67,69 @@
         "order": 2,
         "monument_id": "santuario-madonna-del-bosco",
         "note": "Arrivo al santuario della patrona."
+      }
+    ],
+    "path": [
+      { "lat": 37.14688, "lon": 14.3897 },
+      { "lat": 37.1469, "lon": 14.38934 },
+      { "lat": 37.14711, "lon": 14.38936 },
+      { "lat": 37.14731, "lon": 14.38937 },
+      { "lat": 37.14741, "lon": 14.38938 },
+      { "lat": 37.14754, "lon": 14.38908 },
+      { "lat": 37.14774, "lon": 14.38867 },
+      { "lat": 37.14787, "lon": 14.38842 },
+      { "lat": 37.14794, "lon": 14.38843 },
+      { "lat": 37.14796, "lon": 14.38809 },
+      { "lat": 37.14798, "lon": 14.38783 },
+      { "lat": 37.14838, "lon": 14.38786 },
+      { "lat": 37.14842, "lon": 14.38789 },
+      { "lat": 37.14854, "lon": 14.38771 },
+      { "lat": 37.1486, "lon": 14.38761 },
+      { "lat": 37.14864, "lon": 14.38753 },
+      { "lat": 37.14865, "lon": 14.38748 },
+      { "lat": 37.14864, "lon": 14.38742 },
+      { "lat": 37.14864, "lon": 14.38739 },
+      { "lat": 37.14863, "lon": 14.38737 },
+      { "lat": 37.14864, "lon": 14.38733 },
+      { "lat": 37.14865, "lon": 14.3873 },
+      { "lat": 37.14867, "lon": 14.38727 },
+      { "lat": 37.14869, "lon": 14.38725 },
+      { "lat": 37.14872, "lon": 14.38721 },
+      { "lat": 37.14874, "lon": 14.38718 },
+      { "lat": 37.14881, "lon": 14.38698 },
+      { "lat": 37.1489, "lon": 14.38659 },
+      { "lat": 37.14896, "lon": 14.3863 },
+      { "lat": 37.149, "lon": 14.38604 },
+      { "lat": 37.149, "lon": 14.38593 },
+      { "lat": 37.14901, "lon": 14.38569 },
+      { "lat": 37.14901, "lon": 14.38527 },
+      { "lat": 37.14903, "lon": 14.38476 },
+      { "lat": 37.14903, "lon": 14.38446 },
+      { "lat": 37.14903, "lon": 14.38441 },
+      { "lat": 37.14926, "lon": 14.38439 },
+      { "lat": 37.14937, "lon": 14.38439 },
+      { "lat": 37.14969, "lon": 14.38437 },
+      { "lat": 37.15013, "lon": 14.38437 },
+      { "lat": 37.15019, "lon": 14.38437 },
+      { "lat": 37.15071, "lon": 14.38438 },
+      { "lat": 37.15076, "lon": 14.38438 },
+      { "lat": 37.15082, "lon": 14.38435 },
+      { "lat": 37.15128, "lon": 14.38433 },
+      { "lat": 37.15143, "lon": 14.3843 },
+      { "lat": 37.1516, "lon": 14.38425 },
+      { "lat": 37.15189, "lon": 14.38417 },
+      { "lat": 37.15192, "lon": 14.38416 },
+      { "lat": 37.15219, "lon": 14.38412 },
+      { "lat": 37.15242, "lon": 14.38409 },
+      { "lat": 37.15248, "lon": 14.3841 },
+      { "lat": 37.15252, "lon": 14.38411 }
+    ],
+    "legs": [
+      {
+        "from": "chiesa-madre-santa-maria-itria",
+        "to": "santuario-madonna-del-bosco",
+        "distance_km": 1.01,
+        "travel_minutes": 14
       }
     ]
   }

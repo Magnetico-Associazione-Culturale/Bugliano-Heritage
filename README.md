@@ -193,11 +193,33 @@ Array di percorsi. Le tappe **non duplicano** i dati del monumento: lo referenzi
 |---|---|
 | `id`, `name`, `description` | Identificativi e testi. |
 | `difficulty` | `easy` / `medium` / `hard`. |
-| `duration_minutes`, `distance_km` | Stima. |
-| `travel_mode` | `walking` / `driving` / `bicycling`. |
+| `distance_km` | Distanza reale del percorso (generata da `build_routes.py`). |
+| `duration_minutes` | Stima della durata complessiva, **visite incluse** (manuale). |
+| `travel_mode` | `walking` / `driving` / `bicycling`. Determina il profilo di routing. |
 | `cover_image` | Copertina (path relativo). |
 | `stops` | Lista ordinata: `{ order, monument_id, note }`. |
-| `path` | *Opzionale.* Lista di `{lat, lon}` per disegnare la linea precisa del percorso sulla mappa. Se assente, l'app collega le tappe in linea retta. |
+| `path` | Lista di `{lat, lon}` che segue le strade reali, da disegnare come polilinea. **Generata** da `build_routes.py`. Se assente, l'app collega le tappe in linea retta. |
+| `legs` | **Generata.** Un elemento per ogni tratto tra tappe consecutive: `{ from, to, distance_km, travel_minutes }`. Serve per mostrare "prossima tappa: 350 m, 5 min". |
+
+### Tracciato stradale degli itinerari
+
+Il percorso reale tra le tappe **non va disegnato a mano**: si calcola offline con OSRM
+(dati OpenStreetMap, stessi della basemap Carto) e si salva nel JSON. L'app non deve
+chiamare nessun servizio di routing a runtime: disegna `path` sopra i tile Carto.
+
+```
+python3 build_routes.py                       # tutti i comuni
+python3 build_routes.py "Comune di Niscemi"   # un solo comune
+```
+
+Va rieseguito ogni volta che si cambiano le tappe di un itinerario o le coordinate di un
+monumento. Lo script aggiorna `path`, `distance_km` e `legs`; non tocca `duration_minutes`.
+
+**In automatico:** la GitHub Action `.github/workflows/build-routes.yml` lo esegue a ogni
+push su `main` che modifica `itineraries.json` o `monuments.json`, poi lancia `validate.py`
+su ogni comune e committa i percorsi aggiornati. Si può avviare anche a mano da
+*Actions → Genera percorsi itinerari → Run workflow*. Dopo ogni push fai `git pull` prima
+di modificare di nuovo, perché l'Action aggiunge un suo commit.
 
 ---
 
