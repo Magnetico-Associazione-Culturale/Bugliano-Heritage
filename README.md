@@ -60,9 +60,9 @@ L'app costruisce l'URL completo così:
 url_completo = config.media.base_url + path_relativo
 ```
 
-Esempio: con `base_url = "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/Comune%20di%20Bugliano/"`
+Esempio: con `base_url = "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Heritage/main/Comune%20di%20Bugliano/"`
 e `path = "media/images/flat/chiesa-san-giovanni.jpg"`, l'app scarica
-`https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/Comune%20di%20Bugliano/media/images/flat/chiesa-san-giovanni.jpg`.
+`https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Heritage/main/Comune%20di%20Bugliano/media/images/flat/chiesa-san-giovanni.jpg`.
 
 Il `base_url` deve terminare con `/` e gli spazi nel nome della cartella vanno scritti come `%20`.
 
@@ -79,7 +79,7 @@ questo **non** sta nei singoli `config.json`, ma in **un unico file remoto condi
 `map.config.json` nella radice di questo repo — che ogni build scarica all'avvio:
 
 ```
-https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/map.config.json
+https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Heritage/main/map.config.json
 ```
 
 ```json

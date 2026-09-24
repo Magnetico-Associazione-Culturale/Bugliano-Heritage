@@ -31,11 +31,11 @@
     }
   },
   "media": {
-    "base_url": "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/Comune%20di%20Bugliano/",
+    "base_url": "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Heritage/main/Comune%20di%20Bugliano/",
     "comment": "Ogni path di immagine/audio negli altri file e' RELATIVO a questo base_url. L'app costruisce l'URL completo come base_url + path. Cambiando solo questa riga si sposta tutto l'hosting (es. su un CDN)."
   },
   "map": {
-    "config_url": "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Bugliano-Heritage/main/map.config.json",
+    "config_url": "https://raw.githubusercontent.com/Magnetico-Associazione-Culturale/Heritage/main/map.config.json",
     "comment": "Config mappa GLOBALE condivisa (provider + chiave Carto), uguale per tutti i comuni. L'app scarica questo file all'avvio. La chiave NON va duplicata qui: aggiornando quel file si propaga a tutte le build senza ripubblicare."
   }
 }
