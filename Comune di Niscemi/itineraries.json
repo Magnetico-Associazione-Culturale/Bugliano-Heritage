@@ -2,6 +2,8 @@
   {
     "id": "centro-storico",
     "name": "Tour del Centro Storico",
+    "short_name": "Centro Storico",
+    "color": "#C0392B",
     "description": "Un percorso a piedi tra le principali chiese e i palazzi del centro di Niscemi.",
     "difficulty": "easy",
     "duration_minutes": 90,
@@ -51,6 +53,8 @@
   {
     "id": "fede-e-natura",
     "name": "Fede e Natura: il Santuario nella Sughereta",
+    "short_name": "Fede e Natura",
+    "color": "#2E7D32",
     "description": "Itinerario che collega il centro al Santuario della Madonna del Bosco, ai margini della Riserva Naturale Sughereta.",
     "difficulty": "medium",
     "duration_minutes": 120,

@@ -11,6 +11,7 @@ Esce con codice 1 se trova errori.
 """
 import json
 import os
+import re
 import sys
 
 ERRORS = []
@@ -63,7 +64,20 @@ def main():
             check_path(img.get("path"), f"immagine {mid}")
 
     # Itinerari
+    colors = {}
     for it in itineraries:
+        iid = it.get("id")
+        if not it.get("short_name"):
+            WARN.append(f"Itinerario '{iid}': manca 'short_name' (nome nel selettore)")
+        color = it.get("color")
+        if not color:
+            WARN.append(f"Itinerario '{iid}': manca 'color' (colore sulla mappa)")
+        elif not re.fullmatch(r"#[0-9A-Fa-f]{6}", color):
+            ERRORS.append(f"Itinerario '{iid}': 'color' deve essere nel formato #RRGGBB: {color}")
+        elif color.upper() in colors:
+            WARN.append(f"Itinerario '{iid}': stesso colore di '{colors[color.upper()]}' ({color})")
+        else:
+            colors[color.upper()] = iid
         for stop in it.get("stops", []):
             ref = stop.get("monument_id")
             if ref and ref not in monument_ids:

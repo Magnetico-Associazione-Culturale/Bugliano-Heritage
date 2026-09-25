@@ -237,6 +237,8 @@ Array di percorsi. Le tappe **non duplicano** i dati del monumento: lo referenzi
 | Campo | Note |
 |---|---|
 | `id`, `name`, `description` | Identificativi e testi. |
+| `short_name` | Nome breve (es. `Fede e Natura`) per il selettore degli itinerari nell'app. |
+| `color` | Colore esadecimale `#RRGGBB` della polilinea e dei marker dell'itinerario sulla mappa. Usa colori diversi per ogni itinerario dello stesso comune. |
 | `difficulty` | `easy` / `medium` / `hard`. |
 | `distance_km` | Distanza reale del percorso (generata da `build_routes.py`). |
 | `duration_minutes` | Stima della durata complessiva, **visite incluse** (manuale). |
