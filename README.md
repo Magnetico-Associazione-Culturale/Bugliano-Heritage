@@ -19,7 +19,7 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 │
 ├── Comune di Bugliano/          # Istanza comune (contenuti template di riferimento)
 │   ├── manifest.json            # Punto d'ingresso: versione + elenco dei file
-│   ├── config.json              # Info comune, branding white-label, base_url media
+│   ├── config.json              # Info comune, branding white-label, base_url media, share_url
 │   ├── monuments.json           # Punti di interesse (POI) → sezioni Tappe / Tour 360°
 │   ├── itineraries.json         # Itinerari turistici sulla mappa → sezione Itinerario
 │   ├── quizzes.json             # Quiz → sezione Quiz
@@ -46,6 +46,10 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 > `map.config.json` (nella radice di questo repo) con provider e chiave della mappa Carto,
 > letto da tutte le build. Ogni `config.json` lo richiama via `map.config_url`. Vedi
 > *Mappa: configurazione globale condivisa*.
+
+> **Landing page e QR:** la pagina "scarica l'app" di ogni comune **non** sta in questo
+> repo ma nel repo dedicato `heritage-pages` (GitHub Pages). Ogni `config.json` la
+> richiama via `app.share_url`. Vedi *Landing page e QR code*.
 
 ---
 
@@ -114,6 +118,45 @@ restano autonome: la chiave non è duplicata al loro interno.
 
 ---
 
+## Landing page e QR code
+
+Per ora **non** si usa un QR per monumento: ogni comune ha **un solo QR** (da stampare su
+cartellonistica, brochure, ecc.) che punta a una **landing page** con i pulsanti per
+scaricare l'app da App Store e Google Play.
+
+Le landing page sono servite da **GitHub Pages** sul repo dedicato
+[`heritage-pages`](https://github.com/Magnetico-Associazione-Culturale/heritage-pages),
+con una sottocartella per comune:
+
+```
+heritage-pages/
+├── Niscemi/
+│   └── index.html      → https://magnetico-associazione-culturale.github.io/heritage-pages/Niscemi/
+└── <Nome>/
+    └── index.html      → https://magnetico-associazione-culturale.github.io/heritage-pages/<Nome>/
+```
+
+**Convenzione URL:**
+
+```
+https://magnetico-associazione-culturale.github.io/heritage-pages/<Nome>/
+```
+
+- `<Nome>` è il nome del comune con l'**iniziale maiuscola** (es. `Niscemi`, `Bugliano`).
+  GitHub Pages distingue maiuscole e minuscole: `niscemi/` **non** funziona.
+- L'URL termina sempre con `/`.
+
+L'URL è salvato in `config.json` → `app.share_url` ed è usato dal **pulsante "Condividi
+l'app"**: l'app apre il foglio di condivisione nativo (WhatsApp, messaggi, email…) con
+questo link, così chi lo riceve arriva alla landing con i pulsanti degli store. È anche
+l'URL da codificare nel QR: un'unica fonte di verità per entrambi.
+
+> **Il QR non va mai rigenerato:** punta a un URL stabile. Se cambiano i link agli store o
+> la grafica, si aggiorna solo `index.html` nel repo `heritage-pages`. Se in futuro si
+> torna ai QR per monumento, basterà aggiungere un campo per POI in `monuments.json`.
+
+---
+
 ## manifest.json
 
 | Campo | Tipo | Descrizione |
@@ -132,6 +175,8 @@ restano autonome: la chiave non è duplicata al loro interno.
 Contiene le info del comune, il branding dell'app (white-label) e il `base_url` dei media.
 `comune.map_center` + `default_zoom` definiscono dove **centrare** la mappa all'avvio.
 `app.theme` contiene i colori e il logo per personalizzare l'aspetto della build.
+`app.share_url` è il link condiviso dal pulsante "Condividi l'app": punta alla landing page
+"scarica l'app" del comune, la stessa del QR unico (vedi *Landing page e QR code*).
 `map.config_url` **richiama** il file mappa globale condiviso: provider e chiave (Carto)
 **non** stanno qui (vedi *Mappa: configurazione globale condivisa*).
 
@@ -253,7 +298,7 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
 ## Checklist per un nuovo comune
 
 1. **Clona** una sottocartella esistente (es. `Comune di Bugliano/`) e rinominala `Comune di <Nome>/`.
-2. In `config.json`: aggiorna `comune`, `app.display_name`, i colori e **`media.base_url`** (deve puntare al repo/host del nuovo comune).
+2. In `config.json`: aggiorna `comune`, `app.display_name`, i colori, **`media.base_url`** (deve puntare al repo/host del nuovo comune) e **`app.share_url`** (`…/heritage-pages/<Nome>/`, iniziale maiuscola).
 3. In `manifest.json`: aggiorna `comune_id` e `content_version`.
 4. Compila `monuments.json`, `itineraries.json`, `quizzes.json`.
 5. Carica i media nelle cartelle `media/...` con gli stessi path indicati nei JSON.
@@ -262,6 +307,10 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
    (radice di questo repo).
 7. In build → indica la sottocartella del comune.
 8. Pubblica sugli store sotto *Magnetico Associazione Culturale*.
+9. **Landing page:** nel repo `heritage-pages` clona `Niscemi/` in `<Nome>/`, adatta testi,
+   colori (gli stessi di `app.theme`) e link agli store dell'app appena pubblicata.
+10. **QR:** genera il QR da `app.share_url`, aprilo da smartphone e verifica che la pagina
+    si carichi prima di mandarlo in stampa.
 
 ## Validazione consigliata
 

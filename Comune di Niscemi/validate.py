@@ -93,6 +93,13 @@ def main():
     if not config.get("map", {}).get("config_url"):
         WARN.append("config.json: manca 'map.config_url' (config mappa globale condivisa)")
 
+    # Landing page unica (QR + condivisione)
+    share_url = config.get("app", {}).get("share_url")
+    if not share_url:
+        WARN.append("config.json: manca 'app.share_url' (landing page per QR e condivisione)")
+    elif not share_url.startswith("https://") or not share_url.endswith("/"):
+        WARN.append(f"config.json: 'app.share_url' deve iniziare con https:// e terminare con /: {share_url}")
+
     # Report
     for w in WARN:
         print("WARN:", w)

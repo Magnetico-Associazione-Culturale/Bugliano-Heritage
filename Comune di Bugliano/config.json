@@ -22,6 +22,7 @@
   "app": {
     "display_name": "Bugliano Heritage",
     "publisher": "Magnetico Associazione Culturale",
+    "share_url": "https://magnetico-associazione-culturale.github.io/heritage-pages/Bugliano/",
     "theme": {
       "primary_color": "#1B4965",
       "secondary_color": "#CAE9FF",
