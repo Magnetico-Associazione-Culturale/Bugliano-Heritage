@@ -2,7 +2,7 @@
   {
     "id": "chiesa-madre-santa-maria-itria",
     "name": "Chiesa Madre Santa Maria d'Itria",
-    "category": "church",
+    "category": "chiesa",
     "short_description": "Chiesa Madre di Niscemi, principale luogo di culto del centro storico.",
     "description": "La Chiesa Madre, dedicata a Santa Maria d'Itria, e' il cuore religioso del centro storico di Niscemi. Custodisce opere d'arte sacra e rappresenta un punto di riferimento per la comunita'.",
     "lat": 37.1469,
@@ -45,7 +45,7 @@
   {
     "id": "santuario-madonna-del-bosco",
     "name": "Santuario della Madonna del Bosco",
-    "category": "church",
+    "category": "chiesa",
     "short_description": "Santuario dedicato alla patrona di Niscemi, immerso nella Sughereta.",
     "description": "Il Santuario della Madonna del Bosco e' il principale luogo di devozione di Niscemi, legato alla patrona Maria Santissima del Bosco. Sorge ai margini della Riserva Naturale Sughereta ed e' meta di pellegrinaggio.",
     "lat": 37.1530,
@@ -73,7 +73,7 @@
   {
     "id": "piazza-vittorio-emanuele",
     "name": "Piazza Vittorio Emanuele",
-    "category": "civic",
+    "category": "civico",
     "short_description": "Piazza principale del centro storico, salotto urbano di Niscemi.",
     "description": "Cuore della vita cittadina, Piazza Vittorio Emanuele si apre davanti alla Chiesa Madre ed e' il principale punto di ritrovo del centro storico, sede di feste e manifestazioni.",
     "lat": 37.1469,
@@ -101,7 +101,7 @@
   {
     "id": "palazzo-comunale",
     "name": "Palazzo Comunale",
-    "category": "civic",
+    "category": "civico",
     "short_description": "Sede del Municipio, centro amministrativo della citta'.",
     "description": "Il Palazzo Comunale ospita gli uffici amministrativi di Niscemi e affaccia sulla piazza principale del centro.",
     "lat": 37.1465,

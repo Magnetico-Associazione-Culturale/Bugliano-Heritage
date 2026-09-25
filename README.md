@@ -191,7 +191,7 @@ images, history). Campi:
 |---|---|---|---|
 | `id` | string | sì | Slug univoco. Usato come riferimento da itinerari e quiz. |
 | `name` | string | sì | Nome visualizzato. |
-| `category` | string | sì | `church`, `palace`, `civic`, `technology`, `museum`, `monument`, ... |
+| `category` | string | sì | `chiesa`, `palazzo`, `civico`, `tecnologia`, `museo`, `monumento`, ... |
 | `short_description` | string | sì | Una riga per la lista. |
 | `description` | string | no | Testo lungo per la scheda di dettaglio. |
 | `lat`, `lon` | number\|null | sì | Coordinate. `null` se sconosciute (il pin non viene mostrato). |

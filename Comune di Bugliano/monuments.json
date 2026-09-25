@@ -2,7 +2,7 @@
   {
     "id": "chiesa-san-giovanni",
     "name": "Chiesa di San Giovanni",
-    "category": "church",
+    "category": "chiesa",
     "short_description": "Chiesa madre dedicata a San Giovanni, principale luogo di culto del borgo.",
     "description": "La chiesa madre rappresenta il cuore religioso di Bugliano. La facciata in stile barocco siciliano e l'interno a tre navate custodiscono opere di pregio.",
     "lat": 37.6522,
@@ -51,7 +51,7 @@
   {
     "id": "palazzo-comunale",
     "name": "Palazzo Comunale",
-    "category": "civic",
+    "category": "civico",
     "short_description": "Sede del Municipio, centro amministrativo del borgo.",
     "description": "Il Palazzo Comunale ospita gli uffici amministrativi e affaccia sulla piazza principale.",
     "lat": 37.6525,
