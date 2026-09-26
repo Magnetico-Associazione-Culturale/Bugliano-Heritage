@@ -24,13 +24,16 @@ aggiungere un comune si **clona** una sottocartella esistente e se ne adattano i
 │   ├── itineraries.json         # Itinerari turistici sulla mappa → sezione Itinerario
 │   ├── quizzes.json             # Quiz → sezione Quiz
 │   ├── validate.py              # Validatore contenuti (eseguire dentro la cartella)
+│   ├── i18n/                    # Traduzioni (opzionali), una cartella per lingua
+│   │   └── en/                  # Stessi nomi file, solo i testi, per id
 │   └── media/                   # Tutti gli asset (relativi a media.base_url)
 │       ├── images/
 │       │   ├── flat/            # Foto standard
 │       │   ├── 360/             # Immagini equirettangolari per tour 360°
 │       │   └── itineraries/     # Copertine degli itinerari
 │       ├── audio/
-│       │   └── it/              # Audioguide in italiano
+│       │   ├── it/              # Audioguide in italiano
+│       │   └── en/              # Audioguide in inglese (se presenti)
 │       └── branding/            # Logo e splash dell'app
 │
 └── Comune di Niscemi/           # Altra istanza (stessa struttura, contenuti propri)
@@ -164,9 +167,10 @@ l'URL da codificare nel QR: un'unica fonte di verità per entrambi.
 | `schema_version` | string | Versione della struttura JSON. Cambiala solo se cambi i campi. |
 | `content_version` | string | Data/versione dei contenuti. Aggiornala a ogni modifica per invalidare la cache. |
 | `comune_id` | string | Slug del comune (minuscolo, senza spazi). |
-| `default_language` | string | Lingua predefinita (`it`). |
-| `available_languages` | string[] | Lingue disponibili. |
+| `default_language` | string | Lingua predefinita (`it`): è la lingua dei file base. |
+| `available_languages` | string[] | Lingue mostrate nel selettore dell'app. |
 | `files` | object | Nomi dei file di contenuto (così l'app sa cosa caricare). |
+| `translations` | object | *(da schema 1.1)* Per ogni lingua diversa dalla predefinita, i file di traduzione. Vedi *Traduzioni*. |
 
 ---
 
@@ -297,6 +301,85 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
 
 ---
 
+## Traduzioni (selettore lingua)
+
+I file base (`monuments.json`, ecc.) sono nella **lingua predefinita** e restano l'unica
+fonte per coordinate, percorsi, id, media e risposte corrette. Per ogni altra lingua si
+aggiungono in `i18n/<lingua>/` file con **solo i testi**, indicizzati per id, e li si
+registra nel manifest:
+
+```json
+"default_language": "it",
+"available_languages": ["it", "en"],
+"translations": {
+  "en": {
+    "config": "i18n/en/config.json",
+    "monuments": "i18n/en/monuments.json",
+    "itineraries": "i18n/en/itineraries.json",
+    "quizzes": "i18n/en/quizzes.json"
+  }
+}
+```
+
+### Formato
+
+Ogni file di traduzione è un **oggetto** (non un array) con chiave = `id` dell'elemento base.
+
+| File | Campi traducibili |
+|---|---|
+| `config` | `comune.{name, short_description, description, patron_saint}` |
+| `monuments` | `name`, `short_description`, `description`, `address`, `tags`, `audio`, `images`, `history` |
+| `itineraries` | `name`, `short_name`, `description`, `stops` |
+| `quizzes` | `title`, `description`, `questions` |
+
+Gli elementi annidati senza `id` proprio usano un'altra chiave:
+
+| Campo | Chiave | Contenuto |
+|---|---|---|
+| `images` | `path` dell'immagine | `{ title, alt }` |
+| `history` | posizione nell'array (stesso ordine del file base) | `{ title, description }` |
+| `stops` | `monument_id` della tappa | `{ note }` |
+| `questions` | `id` della domanda | `{ text, options: { <id opzione>: "testo" }, explanation }` |
+| `audio` | — | oggetto **completo** che sostituisce quello base (`path` in `media/audio/<lingua>/`, `language: "<lingua>"`) |
+
+```json
+{
+  "centro-storico": {
+    "name": "Historic Centre Tour",
+    "short_name": "Historic Centre",
+    "stops": {
+      "chiesa-madre-santa-maria-itria": { "note": "Starting point: the Mother Church." }
+    }
+  }
+}
+```
+
+**Non vanno mai tradotti** (restano nei file base): `id`, `lat`/`lon`, `category`,
+`difficulty`, `travel_mode`, `color`, `path`/`legs` degli itinerari, `correct` dei quiz,
+i path delle immagini. I valori enumerati (`category`, `difficulty`, …) e le etichette
+dell'interfaccia (Home, Tappe, Tour…) sono tradotti **nell'app**, non nei contenuti.
+
+### Comportamento dell'app
+
+1. **Lingua iniziale:** preferenza salvata → altrimenti lingua del dispositivo se presente
+   in `available_languages` → altrimenti `default_language`.
+2. **Selettore** (sezione Info): mostra solo `available_languages`; se c'è una sola lingua
+   il selettore è nascosto. Al cambio salva la preferenza e ricarica i contenuti.
+3. **Unione:** carica il file base, poi se la lingua non è la predefinita carica la
+   traduzione e sovrascrive i campi presenti. **Un testo mancante resta nella lingua
+   predefinita**: le traduzioni possono essere parziali.
+4. **Audio:** se un monumento non ha `audio` tradotto si usa quello base; l'app legge
+   `audio.language` e può mostrare un'etichetta tipo *"Italian only"*.
+5. **Cache:** separata per lingua, invalidata da `content_version` come per i file base.
+
+Le versioni dell'app precedenti allo schema 1.1 ignorano `translations` e continuano a
+funzionare in italiano.
+
+`validate.py` controlla che le traduzioni puntino a id esistenti e contengano solo campi
+traducibili (**errore**), e segnala i testi non ancora tradotti (**avviso**).
+
+---
+
 ## Checklist per un nuovo comune
 
 1. **Clona** una sottocartella esistente (es. `Comune di Bugliano/`) e rinominala `Comune di <Nome>/`.
@@ -304,6 +387,8 @@ Array di quiz. `monument_id` può essere `null` (quiz generale) o l'id di un mon
 3. In `manifest.json`: aggiorna `comune_id` e `content_version`.
 4. Compila `monuments.json`, `itineraries.json`, `quizzes.json`.
 5. Carica i media nelle cartelle `media/...` con gli stessi path indicati nei JSON.
+   *(Opzionale)* aggiungi le traduzioni in `i18n/<lingua>/` e registrale nel manifest
+   (vedi *Traduzioni*).
 6. **Mappa:** verifica che `config.json` abbia `map.config_url` (lo stesso per tutti i
    comuni). Non duplicare la chiave: provider e chiave sono globali in `map.config.json`
    (radice di questo repo).

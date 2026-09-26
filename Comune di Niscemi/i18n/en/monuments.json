@@ -1,0 +1,80 @@
+{
+  "chiesa-madre-santa-maria-itria": {
+    "name": "Mother Church of Santa Maria d'Itria",
+    "short_description": "Niscemi's Mother Church, the main place of worship in the historic centre.",
+    "description": "The Mother Church, dedicated to Santa Maria d'Itria, is the religious heart of Niscemi's historic centre. It houses works of sacred art and is a landmark for the community.",
+    "address": "Piazza Vittorio Emanuele, Niscemi, CL, Italy",
+    "tags": ["historic centre", "mother church"],
+    "images": {
+      "media/images/flat/chiesa-madre-santa-maria-itria.jpg": {
+        "title": "Façade of the Mother Church",
+        "alt": "Exterior view of the Mother Church of Santa Maria d'Itria"
+      },
+      "media/images/360/chiesa-madre-navata.jpg": {
+        "title": "Central nave",
+        "alt": "360° panoramic view of the central nave"
+      }
+    },
+    "history": [
+      {
+        "title": "Foundation",
+        "description": "The church was built as the main place of worship of the town."
+      }
+    ]
+  },
+  "santuario-madonna-del-bosco": {
+    "name": "Sanctuary of the Madonna del Bosco",
+    "short_description": "Sanctuary dedicated to Niscemi's patron saint, set in the cork oak forest.",
+    "description": "The Sanctuary of the Madonna del Bosco is Niscemi's main place of devotion, linked to the patron saint Maria Santissima del Bosco. It stands on the edge of the Sughereta Nature Reserve and is a pilgrimage destination.",
+    "address": "Contrada Bosco, Niscemi, CL, Italy",
+    "tags": ["sanctuary", "patron saint", "cork oak forest"],
+    "images": {
+      "media/images/flat/santuario-madonna-del-bosco.jpg": {
+        "title": "Sanctuary of the Madonna del Bosco",
+        "alt": "Sanctuary of the Madonna del Bosco in Niscemi"
+      }
+    },
+    "history": [
+      {
+        "title": "Marian devotion",
+        "description": "The sanctuary became the centre of the cult of the town's patron saint."
+      }
+    ]
+  },
+  "piazza-vittorio-emanuele": {
+    "name": "Piazza Vittorio Emanuele",
+    "short_description": "Main square of the historic centre, Niscemi's open-air living room.",
+    "description": "The heart of town life, Piazza Vittorio Emanuele opens in front of the Mother Church and is the main meeting point of the historic centre, hosting festivals and events.",
+    "address": "Piazza Vittorio Emanuele, Niscemi, CL, Italy",
+    "tags": ["historic centre", "square"],
+    "images": {
+      "media/images/flat/piazza-vittorio-emanuele.jpg": {
+        "title": "Piazza Vittorio Emanuele",
+        "alt": "View of Niscemi's main square"
+      },
+      "media/images/360/piazza-vittorio-emanuele.jpg": {
+        "title": "Panorama of the square",
+        "alt": "360° panoramic view of Piazza Vittorio Emanuele"
+      }
+    }
+  },
+  "palazzo-comunale": {
+    "name": "Town Hall",
+    "short_description": "Seat of the municipality, the administrative centre of the town.",
+    "description": "The Town Hall houses Niscemi's administrative offices and overlooks the main square of the centre.",
+    "address": "Piazza del Municipio, Niscemi, CL, Italy",
+    "tags": ["institutional"],
+    "images": {
+      "media/images/flat/palazzo-comunale.jpg": {
+        "title": "Town Hall",
+        "alt": "Niscemi Town Hall"
+      }
+    },
+    "history": [
+      {
+        "title": "Municipal seat",
+        "description": "The building was adapted to house the local government."
+      }
+    ]
+  }
+}

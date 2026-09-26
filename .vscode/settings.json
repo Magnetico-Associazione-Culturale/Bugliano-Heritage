@@ -3,6 +3,8 @@
         "/^cd \"/Users/dariopiazza/Heritage/Comune di Niscemi\" && python3 validate\\.py$/": {
             "approve": true,
             "matchCommandLine": true
-        }
+        },
+        "diff": true,
+        "cp": true
     }
 }

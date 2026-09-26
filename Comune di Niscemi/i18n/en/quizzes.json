@@ -1,0 +1,25 @@
+{
+  "quiz-generale": {
+    "title": "How well do you know Niscemi?",
+    "description": "Test your knowledge of the town's heritage.",
+    "questions": {
+      "q1": {
+        "text": "Who is the patron saint of Niscemi?",
+        "options": {
+          "a": "Maria Santissima del Bosco",
+          "b": "Saint Rosalia",
+          "c": "Saint Agatha"
+        },
+        "explanation": "Niscemi's patron saint is Maria Santissima del Bosco, venerated in the sanctuary of the same name."
+      },
+      "q2": {
+        "text": "To whom is Niscemi's Mother Church dedicated?",
+        "options": {
+          "a": "Santa Maria d'Itria",
+          "b": "Saint John"
+        },
+        "explanation": "The Mother Church is dedicated to Santa Maria d'Itria."
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "centro-storico": {
+    "name": "Historic Centre Tour",
+    "short_name": "Historic Centre",
+    "description": "A walking route through the main churches and palaces in the centre of Niscemi.",
+    "stops": {
+      "chiesa-madre-santa-maria-itria": { "note": "Starting point: the Mother Church." },
+      "piazza-vittorio-emanuele": { "note": "Stop in the main square: 360° panoramic view available." },
+      "palazzo-comunale": { "note": "Overlooking the main square." }
+    }
+  },
+  "fede-e-natura": {
+    "name": "Faith and Nature: the Sanctuary in the Cork Oak Forest",
+    "short_name": "Faith and Nature",
+    "description": "A route linking the town centre to the Sanctuary of the Madonna del Bosco, on the edge of the Sughereta Nature Reserve.",
+    "stops": {
+      "chiesa-madre-santa-maria-itria": { "note": "Departure from the historic centre." },
+      "santuario-madonna-del-bosco": { "note": "Arrival at the sanctuary of the patron saint." }
+    }
+  }
+}
